@@ -6,3 +6,4 @@
 *.jar
 /jakarta.inject-tck*/
 /payara5/
+di.log
