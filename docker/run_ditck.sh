@@ -1,6 +1,7 @@
 #!/bin/bash -xe
 #
 # Copyright (c) 2019 Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2019, 2020 Payara Foundation and/or its affiliates. All rights reserved.
 #
 # This program and the accompanying materials are made available under the
 # terms of the Eclipse Public License v. 2.0, which is available at
@@ -18,7 +19,7 @@
 VER="1.0"
 
 if ls ${WORKSPACE}/bundles/*330-tck-glassfish-porting-*.zip 1> /dev/null 2>&1; then
-  unzip -o ${WORKSPACE}/bundles/*330-tck-glassfish-porting-*.zip -d ${WORKSPACE}
+  unzip -q -o ${WORKSPACE}/bundles/*330-tck-glassfish-porting-*.zip -d ${WORKSPACE}
 else
   echo "[ERROR] TCK bundle not found"
   exit 1
@@ -32,7 +33,7 @@ if [ -z "${GF_BUNDLE_URL}" ]; then
   export GF_BUNDLE_URL="http://download.oracle.com/glassfish/5.0.1/nightly/latest-glassfish.zip"
 fi
 wget --progress=bar:force --no-cache $GF_BUNDLE_URL -O latest-glassfish.zip
-unzip -o ${WORKSPACE}/latest-glassfish.zip -d ${WORKSPACE}
+unzip -q -o ${WORKSPACE}/latest-glassfish.zip -d ${WORKSPACE}
 
 which ant
 ant -version

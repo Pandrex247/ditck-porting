@@ -1,0 +1,9 @@
+*.tar.gz
+*.zip
+/330-tck-glassfish-porting/
+/330tck-report/
+/cdi-tck-*/
+*.jar
+/jakarta.inject-tck*/
+/payara5/
+di.log
