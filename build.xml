@@ -21,7 +21,7 @@
 
 	<property file="${basedir}/build.properties" />
 
-	<property name="tck.version" value="1.0.0"/>
+	<property name="tck.version" value="2.0.1"/>
 	<property name="src" value="${basedir}/src" />
 	<property name="classes" value="${basedir}/classes" />
 	<property name="dist" value="${basedir}/dist" />
@@ -42,10 +42,10 @@
 			<include name="lib/*.jar" />
 		</fileset>
 		<fileset dir="${299.tck.home}">
-                        <include name="**/*.jar" /> <exclude name="**/javax.inject*.jar"/>
+                        <include name="**/*.jar" /> <exclude name="**/jakarta.inject*.jar"/>
 		</fileset>
 		<fileset dir="${tck.home}">
-                        <include name="jakarta.inject-tck-1.0.jar" />
+                        <include name="jakarta.inject-tck-*.jar" />
 		</fileset>
 		<fileset dir="${porting.home}">
                         <include name="**/*.jar" />
@@ -54,8 +54,8 @@
 	</path>
     <!--Proxy information should be provided in ANT_OPTS env variable as set ANT_OPTS=-Dhttp.proxyHost=host -Dhttp.proxyPort=port-->
 	<target name="downloadDependencies">
-		<get src="http://central.maven.org/maven2/junit/junit/4.12/junit-4.12.jar" verbose="on" dest="lib"/>
-		<get src="http://central.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/slf4j-simple-1.7.25.jar" verbose="on" dest="lib"/>
+		<get src="https://repo1.maven.org/maven2/junit/junit/4.12/junit-4.12.jar" verbose="on" dest="lib"/>
+		<get src="https://repo1.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/slf4j-simple-1.7.25.jar" verbose="on" dest="lib"/>
 		<get src="https://repo1.maven.org/maven2/org/jboss/arquillian/container/arquillian-weld-embedded/2.0.1.Final/arquillian-weld-embedded-2.0.1.Final.jar" verbose="on" dest="${porting.home}"/>
 	</target>
 	<target name="print-classpath">
@@ -65,28 +65,28 @@
 	</target>
 	<target name="run" depends="downloadDependencies,print-classpath">
 		<mkdir dir="${report.dir}"/>
-                <junit>
+        <junit>
 			<classpath>
 				<path refid="classpath"/>
 			</classpath>
 			<formatter type="xml"/>
 			<formatter type="plain" usefile="false" />
-                        <!-- Uncomment this sys prop to workaround this Glassfish 3.1 Jersey bug - https://glassfish.dev.java.net/issues/show_bug.cgi?id=13131 -->
-                        <sysproperty key="com.sun.jersey.server.impl.cdi.lookupExtensionInBeanManager" value="true"/>
+			<!-- Uncomment this sys prop to workaround this Glassfish 3.1 Jersey bug - https://glassfish.dev.java.net/issues/show_bug.cgi?id=13131 -->
+			<sysproperty key="com.sun.jersey.server.impl.cdi.lookupExtensionInBeanManager" value="true"/>
 			<test name="org.jboss.weld.atinject.tck.AtInjectTCK"
                               todir="${report.dir}"/>
 		</junit>
-                <antcall target="report"/>
+        <antcall target="report"/>
 	</target>
 
-        <target name="report">
+    <target name="report">
 		<junitreport todir="${report.dir}">
 			<fileset dir="${report.dir}">
 				<include name="*.xml"/>
 			</fileset>
 			<report format="frames" todir="${report.dir}"/>
 		</junitreport>
-                <echo message="Report written to ${report.dir}"/>
+        <echo message="Report written to ${report.dir}"/>
 	</target>
 
 	<target name="install" depends="dist">
