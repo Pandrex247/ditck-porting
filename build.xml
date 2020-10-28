@@ -44,6 +44,7 @@
 			<exclude name="modules/microprofile-fault-tolerance.jar"/>
 			<exclude name="modules/microprofile-config.jar"/>
 			<exclude name="modules/microprofile-metrics.jar"/>
+                        <exclude name="modules/healthcheck-metrics.jar"/>
 		</fileset>
 		<fileset dir="${glassfish.home}">
 			<include name="lib/*.jar" />
