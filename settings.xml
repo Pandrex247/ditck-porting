@@ -18,8 +18,6 @@
 
 <settings>
 
-  <localRepository>${env.PORTING}/.m2/repository</localRepository>
-
   <profiles>
     <profile>
       <id>default</id>
@@ -54,7 +52,7 @@
           <repository>
             <id>jakarta</id>
             <name>Jakarta Staging Repository</name>
-            <url>https://jakarta.oss.sonatype.org/content/repositories/staging/</url>
+            <url>https://jakarta.oss.sonatype.org/content/repositories/releases/</url>
             <layout>default</layout>
             <snapshots>
               <enabled>false</enabled>
