@@ -68,7 +68,7 @@ cd ${WORKSPACE}
 #Edit test properties
 sed -i "s#tck.home=.*#tck.home=${WORKSPACE}/jakarta.inject-tck-2.0.1#g" ${TS_HOME}/build.properties
 sed -i "s#porting.home=.*#porting.home=${TS_HOME}#g" ${TS_HOME}/build.properties
-sed -i "s#glassfish.home=.*#glassfish.home=${WORKSPACE}/payara5/glassfish#g" ${TS_HOME}/build.properties
+sed -i "s#glassfish.home=.*#glassfish.home=${WORKSPACE}/payara6/glassfish#g" ${TS_HOME}/build.properties
 sed -i "s#299.tck.home=.*#299.tck.home=${WORKSPACE}/cdi-tck-3.0.1#g" ${TS_HOME}/build.properties
 sed -i "s#report.dir=.*#report.dir=${REPORT}#g" ${TS_HOME}/build.properties
 
