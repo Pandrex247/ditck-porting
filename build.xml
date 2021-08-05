@@ -38,13 +38,13 @@
 		<pathelement location="${glassfish.home}/modules/weld-osgi-bundle.jar"/>
 		<fileset dir="${glassfish.home}">
 			<include name="modules/*.jar" />
-			<include name="modules/*.jar" />
 			<exclude name="modules/payara-micro-cdi.jar"/>
 			<exclude name="modules/monitoring-console-core.jar"/>
 			<exclude name="modules/microprofile-fault-tolerance.jar"/>
 			<exclude name="modules/microprofile-config.jar"/>
 			<exclude name="modules/microprofile-metrics.jar"/>
                         <exclude name="modules/healthcheck-metrics.jar"/>
+                        <exclude name="modules/security-connector-oidc-client.jar"/>
 		</fileset>
 		<fileset dir="${glassfish.home}">
 			<include name="lib/*.jar" />
