@@ -43,6 +43,7 @@
 			<exclude name="modules/microprofile-config.jar"/>
 			<exclude name="modules/microprofile-metrics.jar"/>
                         <exclude name="modules/healthcheck-metrics.jar"/>
+                        <exclude name="modules/security-connector-oidc-client.jar"/>
 		</fileset>
 		<fileset dir="${glassfish.home}">
 			<include name="lib/*.jar" />
